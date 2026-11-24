@@ -1,0 +1,27 @@
+[package]
+name = "clean-pdf"
+version = "0.1.0"
+edition = "2021"
+description = "A Preview-style PDF viewer and page editor"
+
+[[bin]]
+name = "CleanPDF"
+path = "src/main.rs"
+
+[dependencies]
+eframe = "0.29"
+# Drawing pages (as CleanNotes does).
+hayro = "0.9"
+# Removing, rotating and reordering pages, and saving.
+lopdf = "0.47"
+# Open and Save As dialogs.
+rfd = "0.15"
+ttf-parser = "0.25"
+anyhow = "1"
+
+[dev-dependencies]
+tempfile = "3"
+png = "0.17"
+
+[profile.dev.package."*"]
+opt-level = 2

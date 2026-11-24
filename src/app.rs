@@ -301,6 +301,7 @@ impl App {
             self.select_only(next);
             self.current = next;
             self.reveal_thumb = Some(next);
+            self.scroll_to = Some(next);
         }
     }
 
@@ -308,6 +309,9 @@ impl App {
         let targets = self.targets();
         if let Some(doc) = &mut self.doc {
             doc.rotate(&targets, degrees);
+            // (Its height changed: keep it in view.)
+            self.current = targets[0];
+            self.scroll_to = Some(targets[0]);
         }
     }
 
